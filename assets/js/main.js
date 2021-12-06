@@ -24,10 +24,10 @@ function clearInput() {
   inputTask.focus();
 }
 
-function createDeleteButton(li){
+function createDeleteButton(li) {
   const deleteButton = document.createElement('button');
   deleteButton.className = 'btn-delete-task';
-  deleteButton.innerText = 'Apagar';
+  deleteButton.innerText = 'Excluir';
 
   li.appendChild(deleteButton);
 }
@@ -40,4 +40,10 @@ inputTask.addEventListener('keypress', function (e) {
 
 btnAddTask.addEventListener('click', function (e) {
   createTask(inputTask.value);
+});
+
+document.addEventListener('click', function (e) {
+  const element = e.target;
+
+  if (element.className === 'btn-delete-task') element.parentElement.remove();
 });
