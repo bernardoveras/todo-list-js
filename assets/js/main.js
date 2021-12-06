@@ -15,6 +15,21 @@ function createTask(task) {
 
   li.innerText = task;
   tasks.appendChild(li);
+  createDeleteButton(li);
+  clearInput();
+}
+
+function clearInput() {
+  inputTask.value = '';
+  inputTask.focus();
+}
+
+function createDeleteButton(li){
+  const deleteButton = document.createElement('button');
+  deleteButton.className = 'btn-delete-task';
+  deleteButton.innerText = 'Apagar';
+
+  li.appendChild(deleteButton);
 }
 
 inputTask.addEventListener('keypress', function (e) {
