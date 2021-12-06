@@ -16,6 +16,7 @@ function createTask(task) {
   li.innerText = task;
   tasks.appendChild(li);
   createDeleteButton(li);
+  saveTask();
   clearInput();
 }
 
@@ -32,11 +33,35 @@ function createDeleteButton(li) {
   li.appendChild(deleteButton);
 }
 
+function saveTask() {
+  const liTasks = tasks.querySelectorAll('li');
+  const taskList = [];
+
+  for (let task of liTasks) {
+    let textTask = task.innerText;
+    textTask = textTask.replace('Excluir', '').trim();
+    taskList.push(textTask);
+  }
+
+  const taskJson = JSON.stringify(taskList);
+
+  localStorage.setItem('tasks', taskJson);
+}
+
+function getLocalTasks() {
+  const tasks = localStorage.getItem('tasks');
+
+  const taskList = JSON.parse(tasks);
+
+  for(let task of taskList){
+    createTask(task);
+  }
+}
+
 inputTask.addEventListener('keypress', function (e) {
   if (e.keyCode === 13)
     createTask(inputTask.value);
 });
-
 
 btnAddTask.addEventListener('click', function (e) {
   createTask(inputTask.value);
@@ -46,4 +71,8 @@ document.addEventListener('click', function (e) {
   const element = e.target;
 
   if (element.className === 'btn-delete-task') element.parentElement.remove();
+
+  saveTask();
 });
+
+getLocalTasks();
