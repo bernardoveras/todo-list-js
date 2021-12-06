@@ -34,29 +34,29 @@ body{
   border-radius: 10px;
 } 
 
-form input, form label, form button{
+.container input, .container label, .container button{
   display: block;
   width: 100%;
   margin-bottom: 10px;
 }
 
-form input {
+.container input {
   font-size: 24px;
   height: 50px;
   padding: 0 20px;
   border-radius: 5px;
 }
 
-form input:focus{
+.container input:focus{
   border-width: 1px;
   outline: 1px solid var(--primary-color);
 }
 
-form input, select, textarea{
+.container input, select, textarea {
   color: var(--primary-color);
 }
 
-form button {
+.container button {
   border: none;
   background-color: var(--primary-color);
   color: #fff;
@@ -70,23 +70,10 @@ form button {
   user-select: none;
 }
 
-form button:hover{
+.container button:hover{
   background: var(--primary-color-dark);
 }
 
-form button:active{
+.container button:active{
   background: var(--primary-color-light);
-}
-
-.paragraph-result , .bad{
-  color: var(--secondary-color);
-  background: var(--secondary-color-light);
-  padding: 10px 20px;
-  border-radius: 5px;
-}
-
-.bad {
-  color: var(--terciary-color);
-  background: var(--terciary-color-light);
-  padding: 10px 20px;
 }
