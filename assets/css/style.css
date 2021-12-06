@@ -85,13 +85,13 @@ body{
 
 .container .btn-delete-task {
   margin-left: 20px;
-  background-color: red;
-}
-
-.container .btn-delete-task:hover{
-  background-color: var(--terciary-color-dark);
+  height: 45px;
+  background-color: transparent;
+  border: 2px solid var(--primary-color);
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .container .btn-delete-task:active{
-  background-color: var(--terciary-color-light);
+  background-color: var(--terciary-color-dark);
 }
